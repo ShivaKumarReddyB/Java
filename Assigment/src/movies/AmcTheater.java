@@ -1,11 +1,5 @@
 package movies;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-
 public class AmcTheater {
     private  String movieName, seatType, bav, nameCust, vehType;
     private int  numOfTickets, onOfVehicles, noOfBev;
@@ -201,20 +195,20 @@ public class AmcTheater {
 
     public double beverageCost(String bev, int num) {
         double cost = 0.0;
-        switch (bev) {
-            case "Pepsi":
+        switch (bev.toLowerCase()) {
+            case "pepsi":
                 cost = 10.0;
                 break;
-            case "Samosa":
+            case "samosa":
                 cost = 17.99;
                 break;
-            case "Nachos":
+            case "nachos":
                 cost = 7.99;
                 break;
-            case "Cakes":
+            case "cakes":
                 cost = 11.89;
                 break;
-            case "Water":
+            case "water":
                 cost = 5.0;
                 break;
         }
@@ -226,23 +220,12 @@ public class AmcTheater {
         return  bevCost +bevCost * TAX_BAR;
     }
 
-    public String getCurrentTime(){
-        DateFormat formatter = new SimpleDateFormat("hh:mm a");
-        String time = formatter.format(new Date());
-        return  time;
-    }
-    public  String getCurrentDate(){
-        LocalDate dateObj = LocalDate.now();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        String date = dateObj.format(formatter);
-        return date;
-    }
 
     public String tktPrint(){
-        return  "********************************************************"+"\n"+
-                "***          AMC                                   ***"+ "\n"+
-                "*******************************************************"+ "\n"+
-                "* Date   "+ getCurrentDate()+ "          Time: "+ getCurrentTime() +  "   *"+"\n"+
+        return  "*******************************************ssz*************************"+"\n"+
+                "***                        AMC                                   ***"+ "\n"+
+                "********************************************************************"+ "\n"+
+                "* Date  : 09/022/2023                  Time : 4:46pm               *"+"\n"+
                 "* Screen No : 04                 Floor : 7                         *" + "\n"+
                 "* Movie Name                   :"+movieName+       "               *"+"\n" +
                 "* Seat Type                     :"+seatType+"("+ checkSeatFare()+")"+"        *"+ "\n"+
@@ -254,18 +237,18 @@ public class AmcTheater {
     }
 
     public String bavTkt(String str, int num ){
-        return  "*********************************"+"\n"+
-                "***          AMC               ***"+ "\n"+
-                "***********************************"+ "\n"+
-                "* Date"+ getCurrentDate()+ "  Time: "+ getCurrentTime() + "*"+"\n"+
-                "* Screen No : 04                 Floor : 7   *" + "\n"+
-                "*                                                  *"+"\n" +
-                "*******************Beverages Bill ********************"+"\n" +
-                "* Items     Price          Quantity *"+ "\n"+
-                "* "+str+"  "+ beverageCost(str, num)+" "+ num+"       *"+ "\n"+
+        return  "*********************************************************"+"\n"+
+                "***                               AMC               ****"+ "\n"+
+                "**********************************************************"+ "\n"+
+                "* Date  : 09/022/2023                  Time : 4:46pm               *"+"\n"+
+                "* Screen No : 04                 Floor : 7                   *" + "\n"+
+                "*                                                            *"+"\n" +
+                "*******************Beverages Bill ****************************"+"\n" +
+                "* Items     Price                          Quantity           *"+ "\n"+
+                "* "+str+"      "+ beverageCost(str, num)+"                         "+ num+"           *"+ "\n"+
                 "*                              -------------   " +"\n" +
                 "* Total Cost (Inc Tax)      :"+ totalBavCost(str,num) +"\n" +
-                "*************************************************"+"\n"+
+                "************************************************************"+"\n"+
                 "------------------Thank You Visit Again --------- *";
     }
 
@@ -292,7 +275,7 @@ public class AmcTheater {
         return  "**********************************************************"+"\n"+
                 "***                         AMC               ***"+ "\n"+
                 "**********************************************************"+ "\n"+
-                "* Date "+ getCurrentDate()+ "  Time: "+ getCurrentTime() + " *"+"\n"+
+                "* Date  : 09/022/2023                  Time : 4:46pm               *"+"\n"+
                 "* Screen No : 04                 Floor : 7   *" + "\n"+
                 "*                                                           *"+"\n" +
                 "* Customer Name        :"+nameCust+"                        *"+"\n" +

@@ -64,7 +64,7 @@ public class MovieDriver {
                 System.out.println("Thank Visit Again....");
                 System.out.println("                      ");
 
-//            exit = true;
+            exit = true;
             } else {
                 System.out.println("Do you have Membership Pass(True/False):");
                 boolean isMember = userInput.nextBoolean();
@@ -75,7 +75,7 @@ public class MovieDriver {
                 }
                 AmcTheater amcTheater = new AmcTheater(movieName, noOfSeats, seatType, isMember, isFirstMember);
                 System.out.println(amcTheater.tktPrint());
-//            exit = true;
+            exit = true;
             }
         } else {
             System.out.println("#ErrorCount 01 - Please enter the correct Seat Type");
@@ -95,18 +95,12 @@ public class MovieDriver {
                         "3. Nachos " + "\n" +
                         "4. Cake " + "\n" +
                         "5. Water ");
-        int menuOptions = userInput.nextInt();
-        if (menuOptions < 6 && menuOptions > 0) {
-            System.out.println("Please enter how many quantities your are required");
-            int count = userInput.nextInt();
-            String beverage = getBeverageOfOption(menuOptions);
-            AmcTheater amcTheater = new AmcTheater(beverage, count);
-            System.out.println(amcTheater.bavTkt(beverage, count));
-        } else {
-            System.out.println("#ErrorCount 01 - Please enter the correct menu option");
-            System.out.println("Thank Visit Again....");
-            System.out.println("                      ");
-        }
+        String menuOption = userInput.next();
+        System.out.println("Please enter how many quantities your are required");
+        int count = userInput.nextInt();
+        AmcTheater amcTheater = new AmcTheater(menuOption, count);
+        System.out.println(amcTheater.bavTkt(menuOption, count));
+        exit= true;
 
 
     }
@@ -128,6 +122,7 @@ public class MovieDriver {
         int vehicleCount = userInput.nextInt();
         AmcTheater amcTheater = new AmcTheater(vehicleCount, customerName, vehicleType);
         System.out.println(amcTheater.parkTkt(vehicleType, vehicleCount));
+        exit=true;
     }
 
     public static void main(String[] args) {
